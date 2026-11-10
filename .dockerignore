@@ -1,0 +1,14 @@
+.git
+data
+results
+voices
+.venv
+__pycache__
+*.egg-info
+build
+tests
+examples
+docs
+scripts
+.claude
+*.log

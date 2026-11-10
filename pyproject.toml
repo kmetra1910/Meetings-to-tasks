@@ -1,0 +1,33 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "meetings-to-tasks"
+version = "0.1.0"
+description = "Meeting recordings to a verbatim transcript, checked minutes and tasks, run locally and operated with a coding agent"
+readme = "README.md"
+license = "LicenseRef-PolyForm-Noncommercial-1.0.0"
+license-files = ["LICENSE"]
+requires-python = ">=3.10"
+dependencies = [
+    "numpy>=1.26",
+    "scipy>=1.11",
+    "scikit-learn>=1.5",
+    "Markdown>=3.7",
+    "requests>=2.32",
+]
+
+[project.optional-dependencies]
+# Speech recognition and voice embeddings; PyTorch and torchaudio come from the base image or pytorch.org.
+asr = [
+    "faster-whisper==1.2.1",
+    "speechbrain==1.0.3",
+    "huggingface-hub==0.36.0",
+]
+
+[project.scripts]
+m2t = "meetings_to_tasks.cli:main"
+
+[tool.setuptools]
+packages = ["meetings_to_tasks"]
